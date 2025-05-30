@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -9,7 +10,6 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -17,12 +17,10 @@
             padding: 20px;
             touch-action: manipulation;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
         }
-
         h1 {
             text-align: center;
             color: white;
@@ -30,14 +28,12 @@
             margin-bottom: 30px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
-
         .kids-container {
             display: flex;
             gap: 30px;
             flex-wrap: wrap;
             justify-content: center;
         }
-
         .kid-card {
             background: white;
             border-radius: 20px;
@@ -49,23 +45,19 @@
             transform: translateY(0);
             transition: all 0.3s ease;
         }
-
         .kid-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 25px 50px rgba(0,0,0,0.15);
         }
-
         .kid-header {
             text-align: center;
             margin-bottom: 25px;
         }
-
         .kid-name {
             font-size: 1.8rem;
             color: #333;
             margin-bottom: 10px;
         }
-
         .points-display {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             border-radius: 15px;
@@ -75,7 +67,6 @@
             position: relative;
             overflow: hidden;
         }
-
         .points-display::before {
             content: '';
             position: absolute;
@@ -88,49 +79,42 @@
             z-index: -1;
             animation: rainbow 3s linear infinite;
         }
-
         @keyframes rainbow {
             0% { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(360deg); }
         }
-
         .points-number {
             font-size: 2.5rem;
             font-weight: bold;
             color: #333;
             margin: 10px 0;
         }
-
         .prize-status {
             font-size: 1.1rem;
             color: #666;
             margin-top: 10px;
         }
-
         .prize-ready {
             color: #27ae60;
             font-weight: bold;
             animation: pulse 1.5s infinite;
         }
-
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.05); }
             100% { transform: scale(1); }
         }
-
         .tasks-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: 12px;
             margin-top: 20px;
         }
-
         .task-item {
             background: #f8f9fa;
             border: 2px solid #e9ecef;
             border-radius: 12px;
-            padding: 15px;
+            padding: 20px;
             display: flex;
             align-items: center;
             gap: 15px;
@@ -139,19 +123,17 @@
             user-select: none;
             position: relative;
             overflow: hidden;
+            min-height: 70px;
         }
-
         .task-item:hover {
             background: #e3f2fd;
             border-color: #2196f3;
         }
-
         .task-item.completed {
             background: linear-gradient(135deg, #a8e6cf, #88d8a3);
             border-color: #27ae60;
             color: #1e6130;
         }
-
         .task-item.completed::after {
             content: '✨';
             position: absolute;
@@ -159,47 +141,97 @@
             font-size: 1.5rem;
             animation: sparkle 1s ease-in-out;
         }
-
         @keyframes sparkle {
             0% { transform: scale(0) rotate(0deg); opacity: 0; }
             50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
             100% { transform: scale(1) rotate(360deg); opacity: 1; }
         }
-
-        .task-checkbox {
-            width: 25px;
-            height: 25px;
-            border: 3px solid #ddd;
-            border-radius: 50%;
+        .punishment-item {
+            background: #fff5f5;
+            border: 2px solid #fed7d7;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            position: relative;
+            overflow: hidden;
+            min-height: 70px;
+        }
+        .punishment-item:hover {
+            background: #fee;
+            border-color: #fc8181;
+        }
+        .punishment-item.used {
+            background: linear-gradient(135deg, #fed7d7, #fc8181);
+            border-color: #e53e3e;
+            color: #742a2a;
+        }
+        .task-emoji {
+            font-size: 2.5rem;
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.3s ease;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-
-        .task-item.completed .task-checkbox {
-            background: #27ae60;
-            border-color: #27ae60;
-            color: white;
-        }
-
         .task-text {
-            font-size: 1.1rem;
-            font-weight: 500;
+            font-size: 1.2rem;
+            font-weight: 600;
             flex-grow: 1;
+            line-height: 1.3;
         }
-
         .task-points {
             background: #3498db;
             color: white;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 25px;
+            font-size: 1rem;
             font-weight: bold;
             flex-shrink: 0;
+            min-width: 50px;
+            text-align: center;
         }
-
+        .punishment-points {
+            background: #e74c3c;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            min-width: 50px;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+            text-align: center;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            border-radius: 10px;
+            border: 2px solid #c3e6cb;
+        }
+        .punishment-section-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #721c24;
+            text-align: center;
+            margin: 25px 0 15px 0;
+            padding: 10px;
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border-radius: 10px;
+            border: 2px solid #f1b0b7;
+        }
         .reset-button {
             background: linear-gradient(135deg, #ff6b6b, #ee5a52);
             color: white;
@@ -213,13 +245,11 @@
             margin-top: 20px;
             transition: all 0.3s ease;
         }
-
         .reset-button:hover {
             background: linear-gradient(135deg, #ee5a52, #ff6b6b);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(238, 90, 82, 0.4);
         }
-
         .date-display {
             text-align: center;
             color: white;
@@ -230,44 +260,19 @@
             border-radius: 10px;
             backdrop-filter: blur(10px);
         }
-
-        .add-kid-button {
-            background: linear-gradient(135deg, #4ecdc4, #44a08d);
-            color: white;
-            border: none;
-            border-radius: 15px;
-            padding: 20px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            max-width: 300px;
-            margin: 20px auto;
-            display: block;
-            transition: all 0.3s ease;
-        }
-
-        .add-kid-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(78, 205, 196, 0.3);
-        }
-
         @media (max-width: 768px) {
             .kids-container {
                 flex-direction: column;
                 align-items: center;
             }
-            
             .kid-card {
                 min-width: 100%;
                 max-width: 500px;
             }
-            
             h1 {
                 font-size: 2rem;
             }
         }
-
         .celebration {
             position: fixed;
             top: 0;
@@ -277,7 +282,6 @@
             pointer-events: none;
             z-index: 1000;
         }
-
         .confetti {
             position: absolute;
             width: 10px;
@@ -285,7 +289,6 @@
             background: #ff6b6b;
             animation: confetti-fall 3s linear infinite;
         }
-
         @keyframes confetti-fall {
             0% {
                 transform: translateY(-100vh) rotate(0deg);
@@ -301,78 +304,105 @@
 <body>
     <div class="container">
         <h1>🌟 Sistema de Puntos Diario 🌟</h1>
-        
+
         <div class="date-display" id="dateDisplay"></div>
-        
+
         <div class="kids-container" id="kidsContainer">
-            <!-- Los niños se generarán dinámicamente -->
-        </div>
-        
-
+            </div>
     </div>
-
     <div class="celebration" id="celebration"></div>
 
     <script>
         // Tareas disponibles con sus puntos
         const availableTasks = [
-            { name: "Lavarse los dientes", points: 2 },
-            { name: "Poner la mesa", points: 2 },
-            { name: "Levantar sus juguetes", points: 2 },
-            { name: "Bañarse", points: 3 },
-            { name: "Recoger trastes", points: 2 },
-            { name: "Ayudar a mamá o papá", points: 3 },
-            { name: "Ponerse la pijama", points: 1 }
+            { name: "🦷 Lavarse los dientes (mañana)", points: 1, emoji: "🦷" },
+            { name: "🦷 Lavarse los dientes (tarde)", points: 1, emoji: "🦷" },
+            { name: "🦷 Lavarse los dientes (noche)", points: 1, emoji: "🦷" },
+            { name: "🍽️ Poner la mesa", points: 1, emoji: "🍽️" },
+            { name: "🧸 Levantar sus juguetes", points: 1, emoji: "🧸" },
+            { name: "🛁 Bañarse", points: 1, emoji: "🛁" },
+            { name: "🍽️ Recoger trastes", points: 1, emoji: "🍽️" },
+            { name: "❤️ Ayudar a mamá o papá", points: 1, emoji: "❤️" },
+            { name: "👔 Ponerse la pijama", points: 1, emoji: "👔" },
+            { name: "📚 Hacer la tarea", points: 1, emoji: "📚" }
+        ];
+
+        // Castigos disponibles
+        const punishments = [
+            { name: "😡 Berrinche", points: -2, emoji: "😡" },
+            { name: "🚫 No obedecer", points: -2, emoji: "🚫" },
+            { name: "⚔️ Pelear con hermano", points: -2, emoji: "⚔️" },
+            { name: "🗣️ Decir groserías", points: -2, emoji: "🗣️" },
+            { name: "💔 Romper algo", points: -2, emoji: "💔" }
         ];
 
         // Estado de los niños
         let kidsData = {};
 
+        // Nombres de los niños por defecto
+        const defaultKidNames = ['León', 'Arath'];
+
         // Inicializar la aplicación
         function initApp() {
             updateDateDisplay();
-            loadKidsData();
+            loadKidsData(); // Esto ahora asegura que kidsData siempre tendrá datos
             renderKids();
-            
+
             // Auto-reset a medianoche
             setInterval(() => {
                 const now = new Date();
                 if (now.getHours() === 0 && now.getMinutes() === 0) {
                     resetAllKids();
                 }
-            }, 60000);
+            }, 60000); // Se ejecuta cada minuto para detectar la medianoche
         }
 
         function updateDateDisplay() {
             const today = new Date();
-            const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric' 
+            const options = {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
             };
-            document.getElementById('dateDisplay').textContent = 
+            document.getElementById('dateDisplay').textContent =
                 `📅 ${today.toLocaleDateString('es-ES', options)}`;
         }
 
         function loadKidsData() {
             const today = new Date().toDateString();
             const savedData = localStorage.getItem('kidsPointsData');
-            
+
             if (savedData) {
-                const parsed = JSON.parse(savedData);
-                if (parsed.date === today) {
-                    kidsData = parsed.data;
-                } else {
-                    // Nuevo día, resetear datos
+                try {
+                    const parsed = JSON.parse(savedData);
+                    if (parsed.date === today) {
+                        kidsData = parsed.data;
+                    } else {
+                        // Nuevo día, resetear datos
+                        console.log("Nuevo día detectado. Reiniciando datos.");
+                        resetAllKidsData();
+                    }
+                } catch (e) {
+                    // Si hay error en los datos guardados (corruptos), crear nuevos
+                    console.error("Error al parsear datos de localStorage:", e);
                     resetAllKidsData();
                 }
             } else {
-                // Datos por defecto
-                kidsData = {
-                    'León': createKidData('León'),
-                    'Arath': createKidData('Arath')
-                };
+                // No hay datos guardados, crear datos por defecto
+                console.log("No hay datos en localStorage. Creando datos por defecto.");
+                resetAllKidsData();
+            }
+
+            // **LA CORRECCIÓN CLAVE:**
+            // Asegurarse de que kidsData siempre tenga los niños por defecto
+            // Esto es crucial para la primera carga o si algo falló en la inicialización.
+            if (Object.keys(kidsData).length === 0) {
+                console.log("kidsData está vacío. Inicializando con niños por defecto.");
+                defaultKidNames.forEach(name => {
+                    kidsData[name] = createKidData(name);
+                });
+                saveKidsData(); // Guardar los datos iniciales por defecto
             }
         }
 
@@ -388,10 +418,14 @@
         function createKidData(name) {
             return {
                 name: name,
-                points: 10,
+                points: 10, // Puntos iniciales
                 tasks: availableTasks.map(task => ({
                     ...task,
                     completed: false
+                })),
+                punishments: punishments.map(punishment => ({
+                    ...punishment,
+                    used: false
                 }))
             };
         }
@@ -399,21 +433,24 @@
         function renderKids() {
             const container = document.getElementById('kidsContainer');
             container.innerHTML = '';
-            
-            Object.keys(kidsData).forEach(kidName => {
-                const kidCard = createKidCard(kidsData[kidName]);
-                container.appendChild(kidCard);
+
+            // Renderizar los niños en el orden de defaultKidNames
+            defaultKidNames.forEach(kidName => {
+                if (kidsData[kidName]) { // Asegurarse de que el niño existe en kidsData
+                    const kidCard = createKidCard(kidsData[kidName]);
+                    container.appendChild(kidCard);
+                }
             });
         }
 
         function createKidCard(kid) {
             const card = document.createElement('div');
             card.className = 'kid-card';
-            
-            const prizeStatus = kid.points >= 20 ? 
+
+            const prizeStatus = kid.points >= 20 ?
                 '<div class="prize-status prize-ready">🎉 ¡Listo para elegir premio! 🎁</div>' :
                 `<div class="prize-status">Necesitas ${20 - kid.points} puntos más para el premio</div>`;
-            
+
             card.innerHTML = `
                 <div class="kid-header">
                     <h2 class="kid-name">${kid.name}</h2>
@@ -423,32 +460,43 @@
                         ${prizeStatus}
                     </div>
                 </div>
-                
+
+                <div class="section-title">✅ Tareas por Hacer</div>
                 <div class="tasks-grid">
                     ${kid.tasks.map((task, index) => `
-                        <div class="task-item ${task.completed ? 'completed' : ''}" 
-                             onclick="toggleTask('${kid.name}', ${index})">
-                            <div class="task-checkbox">
-                                ${task.completed ? '✓' : ''}
-                            </div>
-                            <div class="task-text">${task.name}</div>
+                        <div class="task-item ${task.completed ? 'completed' : ''}"
+                              onclick="toggleTask('${kid.name}', ${index})">
+                            <div class="task-emoji">${task.emoji}</div>
+                            <div class="task-text">${task.name.replace(task.emoji + ' ', '')}</div>
                             <div class="task-points">+${task.points}</div>
                         </div>
                     `).join('')}
                 </div>
-                
+
+                <div class="punishment-section-title">❌ Castigos</div>
+                <div class="tasks-grid">
+                    ${kid.punishments.map((punishment, index) => `
+                        <div class="punishment-item ${punishment.used ? 'used' : ''}"
+                              onclick="togglePunishment('${kid.name}', ${index})">
+                            <div class="task-emoji">${punishment.emoji}</div>
+                            <div class="task-text">${punishment.name.replace(punishment.emoji + ' ', '')}</div>
+                            <div class="punishment-points">${punishment.points}</div>
+                        </div>
+                    `).join('')}
+                </div>
+
                 <button class="reset-button" onclick="resetKid('${kid.name}')">
                     🔄 Reiniciar Día
                 </button>
             `;
-            
+
             return card;
         }
 
         function toggleTask(kidName, taskIndex) {
             const kid = kidsData[kidName];
             const task = kid.tasks[taskIndex];
-            
+
             if (task.completed) {
                 // Desmarcar tarea - quitar puntos
                 task.completed = false;
@@ -457,32 +505,72 @@
                 // Marcar tarea - agregar puntos
                 task.completed = true;
                 kid.points += task.points;
-                
+
                 // Crear efecto de celebración si alcanza 20 puntos
                 if (kid.points >= 20) {
                     createCelebration();
                 }
             }
-            
+
             // Limitar puntos entre 0 y 20
             kid.points = Math.max(0, Math.min(20, kid.points));
-            
+
             saveKidsData();
             renderKids();
         }
 
-        function resetAllKidsData() {
-            kidsData = {
-                'León': createKidData('León'),
-                'Arath': createKidData('Arath')
-            };
+        function togglePunishment(kidName, punishmentIndex) {
+            const kid = kidsData[kidName];
+            const punishment = kid.punishments[punishmentIndex];
+
+            if (punishment.used) {
+                // Desmarcar castigo - quitar penalización
+                punishment.used = false;
+                kid.points -= punishment.points; // Como punishment.points es negativo, al restar se suma
+            } else {
+                // Marcar castigo - aplicar penalización
+                punishment.used = true;
+                kid.points += punishment.points; // punishment.points ya es negativo
+            }
+
+            // Limitar puntos entre 0 y 20
+            kid.points = Math.max(0, Math.min(20, kid.points));
+
             saveKidsData();
+            renderKids();
+        }
+
+        function resetKid(kidName) {
+            if (confirm(`¿Reiniciar el día para ${kidName}? Se borrarán las tareas y castigos de hoy y se restablecerán los puntos a 10.`)) {
+                kidsData[kidName] = createKidData(kidName);
+                saveKidsData();
+                renderKids();
+            }
+        }
+
+        function resetAllKids() {
+            if (confirm('¿Reiniciar el día para TODOS los niños? Se borrarán todas las tareas y castigos de hoy y se restablecerán los puntos a 10.')) {
+                resetAllKidsData();
+                renderKids();
+            }
+        }
+
+        function resetAllKidsData() {
+            kidsData = {}; // Vaciar los datos actuales
+            defaultKidNames.forEach(name => {
+                kidsData[name] = createKidData(name);
+            });
+            saveKidsData();
+            console.log("Datos de todos los niños reiniciados a valores por defecto.");
         }
 
         function createCelebration() {
             const celebration = document.getElementById('celebration');
             const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3'];
-            
+
+            // Limpia confeti existente para evitar sobrecarga si se llama repetidamente
+            celebration.innerHTML = '';
+
             for (let i = 0; i < 50; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
@@ -491,7 +579,8 @@
                 confetti.style.animationDelay = Math.random() * 3 + 's';
                 confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
                 celebration.appendChild(confetti);
-                
+
+                // Eliminar el confeti después de su animación para no acumular elementos DOM
                 setTimeout(() => {
                     confetti.remove();
                 }, 5000);
